@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_project/model/model_movie.dart';
 
 //영화의 data를 백엔드에서 가져와야하기 때문에 Stateful ->상태관리
 class HomeScreen extends StatefulWidget {
@@ -7,6 +8,16 @@ class HomeScreen extends StatefulWidget {
 
 //기존의 main.dart의 home 화면부분 컨테이너를 아래의 코드들로 대체(덮어끼우는 느낌)-> override - screen/home_screen.dart
 class _HomeScreenState extends State<HomeScreen> {
+  //실제Movie모델을 선언하여 list로 더미 데이터를 만듬(추후 파이어베이스와 연동할때 실제로 가져오는 데이터를 그대로 처리하기 위해)
+  List<Movie> movies = [
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    })
+  ];
+
   @override //override로 initState 가져오기
   void initState() {
     super.initState();

@@ -49,6 +49,7 @@ flutter:
   # 이미지 적용시 아래 assets부분 주석 제거
   assets:
     - images/n_logo.jpg
+    - images/test_movie_1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
