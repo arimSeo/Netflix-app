@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_project/model/model_movie.dart';
+import 'package:netflix_project/widget/carousel_slider.dart';
 
 //영화의 data를 백엔드에서 가져와야하기 때문에 Stateful ->상태관리
 class HomeScreen extends StatefulWidget {
@@ -12,10 +13,28 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Movie> movies = [
     Movie.fromMap({
       'title': '사랑의 불시착',
-      'keyword': '사랑/로맨스/판타지',
+      'keyword': '사랑/로맨스',
       'poster': 'test_movie_1.png',
       'like': false
-    })
+    }),
+    Movie.fromMap({
+      'title': '멋쟁이 사자',
+      'keyword': '사랑/코미디',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '슬기로운 의사생활',
+      'keyword': '로맨스',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '배고파',
+      'keyword': '호러',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
   ];
 
   @override //override로 initState 가져오기
@@ -25,7 +44,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return TopBar(); //아래 TopBar클래스 가져옴 -화면 구성!
+    return ListView(
+      children: <Widget>[
+        //스택 형태로
+        Stack(
+          children: <Widget>[
+            CarouselImage(movies: movies), //캐러셀 이미지 -맨 위
+            TopBar(), //아래 TopBar클래스 가져옴 -화면 구성!  - 아래
+          ],
+        )
+      ],
+    );
   }
 }
 
