@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_project/model/model_movie.dart';
+import 'package:netflix_project/widget/box_slider.dart';
 import 'package:netflix_project/widget/carousel_slider.dart';
 import 'package:netflix_project/widget/circle_slider.dart';
 
@@ -50,7 +51,8 @@ class _HomeScreenState extends State<HomeScreen> {
             TopBar(), //아래 TopBar클래스 가져옴 -화면 구성!  - 맨 위
           ],
         ),
-        CircleSlider(movies: movies),
+        CircleSlider(movies: movies), //circle_slider.dart에서 가져옴
+        BoxSlider(movies: movies) //box_slider.dart에서 가져옴
       ],
     );
   }
