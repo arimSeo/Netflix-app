@@ -33,7 +33,7 @@ class BoxSlider extends StatelessWidget {
       results.add(InkWell(
         onTap: () {},
         child: Container(
-          padding: EdgeInsets.only(right: 10),
+          padding: EdgeInsets.only(right: 10, top: 10),
           child: Align(
             alignment: Alignment.centerLeft,
             child: Image.asset('images/' + movies[i].poster),
