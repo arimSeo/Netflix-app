@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_project/model/model_movie.dart';
@@ -41,7 +39,7 @@ class _CarouselImageState extends State<CarouselImage> {
         child: Column(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(30),
         ),
         //페이지 전환
         CarouselSlider(
@@ -55,9 +53,9 @@ class _CarouselImageState extends State<CarouselImage> {
             },
           ),
         ), //carouselSlider선언
-        //콘텐츠 설명(장르 키워드)
+        //콘텐츠 장르(키워드)
         Container(
-          padding: EdgeInsets.fromLTRB(0, 10, 0, 3),
+          padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
           child: Text(
             _currentKeyword,
             style: TextStyle(fontSize: 11),
@@ -66,6 +64,8 @@ class _CarouselImageState extends State<CarouselImage> {
         //메뉴바
         Container(
           child: Row(
+            //mainAxisAlignment: Row , Column에서 정렬하기
+            //spaceEvenly: child widget 사이의 여유 공간을 모두 균등하게 배분
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
@@ -90,7 +90,7 @@ class _CarouselImageState extends State<CarouselImage> {
               ),
               //재생 버튼
               Container(
-                padding: EdgeInsets.only(right: 10),
+                padding: EdgeInsets.only(right: 20),
                 child: TextButton(
                   style: ButtonStyle(
                       backgroundColor:
@@ -103,18 +103,22 @@ class _CarouselImageState extends State<CarouselImage> {
                         color: Colors.black,
                       ),
                       Padding(
-                        padding: EdgeInsets.all(3),
+                        padding: EdgeInsets.all(2),
                       ),
                       Text(
                         '재생',
                         style: TextStyle(color: Colors.black),
-                      )
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(5),
+                      ),
                     ],
                   ),
                 ),
               ),
+              //정보 버튼
               Container(
-                padding: EdgeInsets.only(right: 10),
+                padding: EdgeInsets.only(right: 17),
                 child: Column(
                   children: <Widget>[
                     IconButton(
