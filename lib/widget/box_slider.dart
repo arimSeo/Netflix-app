@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_project/model/model_movie.dart';
+import 'package:netflix_project/screen/detail_screen.dart';
 
 class BoxSlider extends StatelessWidget {
   //홈화면(screen)에서 movies를 받아오기 위해 생성자로 가져오기
@@ -18,7 +19,7 @@ class BoxSlider extends StatelessWidget {
             height: 120,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: makeBoxImages(movies),
+              children: makeBoxImages(context, movies),
             ),
           )
         ],
@@ -26,12 +27,21 @@ class BoxSlider extends StatelessWidget {
     );
   }
 
-  List<Widget> makeBoxImages(List<Movie> movies) {
+  List<Widget> makeBoxImages(BuildContext context, List<Movie> movies) {
     List<Widget> results = [];
     for (var i = 0; i < movies.length; i++) {
       //InkWell : results에 들어가는 위젯-> 추후에 클릭 가능하게 만듦
       results.add(InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute<Null>(
+              fullscreenDialog: true,
+              builder: (BuildContext context) {
+                return DetailScreen(
+                  //movie데이터가 파라미터로 전달-> detail_screen.dart화면 등장
+                  movie: movies[i],
+                );
+              }));
+        },
         child: Container(
           padding: EdgeInsets.only(right: 10, top: 10),
           child: Align(
