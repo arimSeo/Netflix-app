@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_project/screen/home_screen.dart';
+import 'package:netflix_project/screen/more_screen.dart';
 import 'package:netflix_project/widget/bottom_bar.dart';
 
 void main() => runApp(MyApp());
@@ -26,14 +27,14 @@ class _MyAppState extends State<MyApp> {
           child: Scaffold(
             body: TabBarView(
               physics: NeverScrollableScrollPhysics(),
-              //children: []안에 넣고싶은 화면구성-body부분
+              //children: []안에 ->넣고싶은 화면구성-body부분
               children: <Widget>[
                 // Container(
                 //   child: Center(
                 //     child: Text('home'),
                 //   ),
                 // ),
-                //위 코드를 아래 HomeScreen함수(home_screen.dart내 지정)로 대체
+                //위 코드를 아래 HomeScreen()함수 (home_screen.dart에 지정)로 대체
                 HomeScreen(),
                 Container(
                   child: Center(
@@ -45,11 +46,13 @@ class _MyAppState extends State<MyApp> {
                     child: Text('save'),
                   ),
                 ),
-                Container(
-                  child: Center(
-                    child: Text('more'),
-                  ),
-                ),
+
+                MoreScreen()
+                // Container(
+                //   child: Center(
+                //     child: Text('more'),
+                //   ),
+                // ),
               ],
             ),
 

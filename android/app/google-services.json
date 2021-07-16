@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "343991772322",
+    "project_id": "netflixproject-test",
+    "storage_bucket": "netflixproject-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343991772322:android:fc7499acbba6e0b63423fb",
+        "android_client_info": {
+          "package_name": "co.wevivor.netflix_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "343991772322-p55j4cg9gcvm3oviar2jb2npv3hue7sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpR9eBpuHdDsGyba3zN1nwpb9izFmYzwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "343991772322-p55j4cg9gcvm3oviar2jb2npv3hue7sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
