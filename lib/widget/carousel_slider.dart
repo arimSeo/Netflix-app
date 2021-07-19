@@ -75,12 +75,26 @@ class _CarouselImageState extends State<CarouselImage> {
                     likes[_currentPage]
                         ? IconButton(
                             icon: Icon(Icons.check), //찜하기 클릭시 체크아이콘으로(true면)
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                likes[_currentPage] = !likes[_currentPage];
+                                movies[_currentPage]
+                                    .reference
+                                    .updateData({'like': likes[_currentPage]});
+                              });
+                            },
                           )
                         : IconButton(
                             icon:
                                 Icon(Icons.add), //(default:false)찜하기 버튼-add아이콘
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                likes[_currentPage] = !likes[_currentPage];
+                                movies[_currentPage]
+                                    .reference
+                                    .updateData({'like': likes[_currentPage]});
+                              });
+                            },
                           ),
                     Text(
                       '내가 찜한 콘텐츠',

@@ -60,7 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildBody(BuildContext context, List<DocumentSnapshot> snapshot) {
-    List<Movie> movies = snapshot.map((d) => Movie.fromSnapshot(d)).toList();
+    late List<Movie> movies =
+        snapshot.map((d) => Movie.fromSnapshot(d)).toList();
     //아래 Widget build(){ }에서 자리이동
     return ListView(
       children: <Widget>[
