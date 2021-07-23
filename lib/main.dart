@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_project/screen/home_screen.dart';
+import 'package:netflix_project/screen/like_screen.dart';
 import 'package:netflix_project/screen/more_screen.dart';
 import 'package:netflix_project/screen/search_screen.dart';
 import 'package:netflix_project/widget/bottom_bar.dart';
@@ -46,11 +47,12 @@ class _MyAppState extends State<MyApp> {
                 //위 코드를 아래 SearchScreen()함수로 대체 -search_screen.dart
                 SearchScreen(),
 
-                Container(
-                  child: Center(
-                    child: Text('save'),
-                  ),
-                ),
+                // Container(
+                //   child: Center(
+                //     child: Text('save'),
+                //   ),
+                // ),
+                LikeScreen(),
 
                 MoreScreen()
                 // Container(
