@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // ];
 
 //파이어베이스 연동 후
-  Firestore firestore = Firestore.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
   late Stream<QuerySnapshot> streamData;
 
   @override //override로 initState 가져오기
@@ -50,7 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _fetchData(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance.collection('Netflix movie').snapshots(),
+      stream:
+          FirebaseFirestore.instance.collection('Netflix movie').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData)
           return LinearProgressIndicator(); //데이터를 아직 가져오지 못했으면 ProgressIndicator로 로딩화면
@@ -60,19 +61,20 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildBody(BuildContext context, List<DocumentSnapshot> snapshot) {
-    late List<Movie> movies =
-        snapshot.map((d) => Movie.fromSnapshot(d)).toList();
+    List movies = snapshot.map((d) => Movie.fromSnapShot(d)).toList();
     //아래 Widget build(){ }에서 자리이동
     return ListView(
       children: <Widget>[
         //스택 형태로
         Stack(
           children: <Widget>[
-            CarouselImage(movies: movies), //캐러셀 이미지 -아래
+            CarouselImage(movies: movies as List<Movie>), //캐러셀 이미지 -아래
             TopBar(), //아래 TopBar클래스 가져옴 -화면 구성!  - 맨 위
           ],
         ),
-        CircleSlider(movies: movies), //circle_slider.dart에서 가져옴
+        CircleSlider(
+          movies: movies,
+        ), //circle_slider.dart에서 가져옴
         BoxSlider(movies: movies) //box_slider.dart에서 가져옴
       ],
     );

@@ -17,7 +17,7 @@ class Movie {
         like = map['like'];
 
 //firebase연동시 추가
-  Movie.fromSnapShot(DocumentSnapshot snapshot)
+  Movie.fromSnapShot(DocumentSnapshot snapshot) //메소드
       : this.fromMap(snapshot.data, reference: snapshot.reference);
 
   //해당 클래스(인스턴스)를 print할때 용이하게 하기위해 override

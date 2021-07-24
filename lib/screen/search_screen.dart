@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_project/model/model_movie.dart';
@@ -26,7 +27,7 @@ class _SearchScreenState extends State<SearchScreen> {
 //검색결과 화면에 띄우기 -firebase와 연동
   Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance.collection('movie').snapshots(),
+      stream: FirebaseFirestore.instance.collection('movie').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
         return _buildList(context, snapshot.data!.documents);
@@ -54,7 +55,7 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
-    final movie = Movie.fromSnapshot(data);
+    final movie = Movie.fromSnapShot(data);
     return InkWell(
       child: Image.network(movie.poster),
       onTap: () {

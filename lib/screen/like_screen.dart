@@ -10,7 +10,7 @@ class LikeScreen extends StatefulWidget {
 class _LikeScreenState extends State<LikeScreen> {
   Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance
+      stream: FirebaseFirestore.instance
           .collection('movie')
           .where('like', isEqualTo: true)
           .snapshots(),
@@ -35,7 +35,7 @@ class _LikeScreenState extends State<LikeScreen> {
   }
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
-    final movie = Movie.fromSnapshot(data);
+    final movie = Movie.fromSnapShot(data);
 
     return InkWell(
       child: Image.network(movie.poster),
